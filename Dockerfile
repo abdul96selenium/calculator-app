@@ -10,8 +10,8 @@ COPY . /app
 # Install any required packages
 RUN pip install -r requirements.txt
 
-# Expose a port if necessary (e.g., for Flask/Django apps)
-EXPOSE 3000
+# Expose a port (for Gunicorn)
+EXPOSE 8000
 
-# Run the application
-CMD ["python", "app.py"]
+# Run the application with Gunicorn
+CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:8000", "app:app"]
