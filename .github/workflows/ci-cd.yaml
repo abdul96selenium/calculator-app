@@ -22,6 +22,6 @@ jobs:
 
     - name: Deploy to Docker Hub
       run: |
-        docker login -u ${{ secrets.abdul96selenium }} -p ${{ secrets.Abdman@212 }}
+        docker login -u ${{ secrets.abdul96selenium746 }} -p ${{ secrets.Abdman@212 }}
         docker tag calculator-app your-docker-username/calculator-app:latest
         docker push your-docker-username/calculator-app:latest
