@@ -19,9 +19,9 @@ jobs:
       run: |
         docker build -t calculator-app .
         docker run calculator-app
-
+        
     - name: Deploy to Docker Hub
       run: |
-        docker login -u ${{ secrets.abdul96selenium746 }} -p ${{ secrets.Abdman@212 }}
+        docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
         docker tag calculator-app your-docker-username/calculator-app:latest
         docker push your-docker-username/calculator-app:latest
