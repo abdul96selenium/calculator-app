@@ -11,7 +11,7 @@ COPY . /app
 RUN pip install -r requirements.txt
 
 # Expose a port if necessary (e.g., for Flask/Django apps)
-EXPOSE 5000
+EXPOSE 3000
 
 # Run the application
 CMD ["python", "app.py"]
