@@ -1,0 +1,27 @@
+name: CI/CD for Calculator App
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+
+    - name: Build and Push Docker Image
+      run: |
+        docker build -t calculator-app .
+        docker run calculator-app
+
+    - name: Deploy to Docker Hub
+      run: |
+        docker login -u ${{ secrets.abdul96selenium }} -p ${{ secrets.Abdman@212 }}
+        docker tag calculator-app your-docker-username/calculator-app:latest
+        docker push your-docker-username/calculator-app:latest
